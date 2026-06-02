@@ -5,5 +5,6 @@ const Articulo = require('./Articulo')(sequelize, DataTypes);
 
 module.exports = {
     sequelize,
-    Articulo
+    Articulo,
+    
 };
