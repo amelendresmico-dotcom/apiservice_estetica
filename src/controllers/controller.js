@@ -1,4 +1,25 @@
 const { Articulo}= require('../models')
+const { Op } = require('sequelize');
+
+//Get buscar un articulo por id
+exports.getArticuloById = async (req, res) => {
+    const articulo = await Articulo.findByPk(req.params.id);
+    if (!articulo) return res.status(404).json({msg: "Articulo no encontrado"});
+    res.json(articulo);
+}
+//Get buscar un articulo por nombre
+exports.getArticuloByNombre = async (req, res) => {
+    const articulo = await Articulo.findOne({
+        where: {
+            nombre: {
+                [Op.like]: `%${req.params.nombre}%`
+            }
+        }
+    });
+    if (!articulo) return res.status(404).json({msg: "Articulo no encontrado"});
+    res.json(articulo);
+};
+
 
 //Get listar todos los articulos 
 exports.getArticulos = async (req, res) => {
