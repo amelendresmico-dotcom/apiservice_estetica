@@ -1,11 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-    // Corregido el nombre a Articulo
     const Articulo = sequelize.define('Articulo', {
         id: {
-            type: DataTypes.INTEGER, // Corregido: INTEGER
+            type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
-            primaryKey: true // Te recomiendo añadir esto si es tu ID
+            primaryKey: true
         },
         nombre: {
             type: DataTypes.STRING,
@@ -13,14 +12,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         descripcion: {
             type: DataTypes.STRING,
-            allowNull: true // True con minúscula es mejor
+            allowNull: true
         },
         precio: {
             type: DataTypes.FLOAT,
             allowNull: true
         },
         cantidad: {
-            type: DataTypes.INTEGER, // Corregido: INTEGER
+            type: DataTypes.INTEGER,
             allowNull: true,
             defaultValue: 0
         }
@@ -29,5 +28,5 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
 
-    return Articulo; // Corregido para que coincida con la variable de arriba
+    return Articulo;
 };
