@@ -14,6 +14,7 @@ const usuarioRoutes = require('./src/router/UsuarioRoutes');
 
 const app = express();
 
+//Habilitamos cors a la api de forma externa
 app.use(express.json());
 
 // Probar conexión a la base de datos
@@ -42,4 +43,4 @@ app.get('/', (req, res) => {
 });
 
 // Iniciar servidor
-app.listen(3000, () => console.log('🚀 Servidor en http://localhost:3000'));
+app.listen(3000, () => console.log(' Servidor en http://localhost:3000'));
